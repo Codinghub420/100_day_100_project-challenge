@@ -1,0 +1,48 @@
+html,body{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family:fantasy;
+    display: flex;
+    justify-content: center;
+    background-color: lightseagreen;
+}
+.container{
+    height:300px;
+    width:300px;
+   
+    text-align: center;
+    border-radius: 12px;
+    margin-top: 40px;
+    background-color: white;
+
+}
+button{
+    height:30px;
+    width:90px;
+    margin-top: 20px;
+    border-width: 0px;
+    background-color: lightseagreen;
+    border-radius: 9px;
+    font-weight: bolder;
+    text-transform: capitalize;
+    color:white
+}
+h1{
+    color:lightseagreen
+}
+.result{
+    background-color:lightseagreen;
+    height:100px;
+    width:90%;
+    text-align: center;
+    margin-left: 15px;
+    border-radius: 12px;
+
+}
+#demo{
+    margin-top: 30px;
+    color:white;
+    position: relative;
+    top:25px;
+}
