@@ -4,18 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet"href="json.css">
 </head>
 <body>
     <button onclick="myfun()">click!</button>
     <p id="demo"></p>
-    <script>
-        const myfun=  async ()=>{
-            let response= await fetch('app.json');
-            let data= await response.json();
-            let rand=Math.floor(Math.random()*data.length);
-            document.querySelector('#demo').innerHTML=`${data.facts[rand]}`;
-           
-        }
+    <script src="json.js">
     </script>
 </body>
 </html>
