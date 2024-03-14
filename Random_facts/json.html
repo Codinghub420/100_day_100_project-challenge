@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="myfun()">click!</button>
+    <p id="demo"></p>
+    <script>
+        const myfun=  async ()=>{
+            let response= await fetch('app.json');
+            let data= await response.json();
+            let rand=Math.floor(Math.random()*data.length);
+            document.querySelector('#demo').innerHTML=`${data.facts[rand]}`;
+           
+        }
+    </script>
+</body>
+</html>
