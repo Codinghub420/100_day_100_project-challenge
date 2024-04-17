@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock,paper and scissor</title>
+    <style>
+        html,body{
+            margin:0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            height:100vh;
+            width: 100vw;
+            flex-direction: column;
+            align-items: center;
+            user-select: none;
+        }
+        .container{
+            height: 200px;
+            width:90vw;
+            display: flex;
+            align-items:center;
+            justify-content:space-around;
+            background-color:rgba(135, 207, 235, 0.822);
+            border-radius: 12px;
+            border: 5px solid rgba(241, 151, 181, 0.808);
+            transition-duration: 2s;
+        }
+        #rock{
+            height:100px;
+            width:100px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #paper{
+            height:100px;
+            width:100px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #scissor{
+            height:100px;
+            width:100px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        img{
+            object-fit:cover;
+            height:90px;
+            width: 90px;
+            border-radius: 50%;
+            
+        }
+        h2{
+            margin-top: -90px;
+            text-align: center;
+            font-size: 30px;
+            text-decoration: underline;
+            color:rgb(241, 151, 181)
+        }
+        .choice{
+            transition-duration: .2s;
+        }
+        .choice:hover{
+            cursor: pointer;
+            background-color:rgba(255, 255, 255, 0.815);
+        }
+        .choice:active{
+            opacity: .7;
+            cursor: pointer;
+        }
+        .score{
+            height:150px;
+            width:60vw;
+            background-color: lightseagreen;
+            margin-bottom: -40px;
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            border-radius: 20px;
+            color:white;
+            font-size: 20px;
+            text-align: center;
+            font-weight: bolder;
+            gap: 10px;
+            padding-bottom: 40px;
+        }
+        p{
+            text-align: center;
+            font-size: 30px;
+            position: relative;
+            top:20px;
+
+        }
+        .msg{
+            display: none;
+            position: absolute;
+            top:40%;
+            box-shadow: 5px 5px 5px  black;
+            z-index: 2;
+            height:130px;
+            width:350px;
+            white-space: nowrap;
+            background-color: skyblue;
+            text-align: center;
+            border-radius: 20px;
+            color:white;
+            font-weight: bolder;
+            border: 5px solid rgba(241, 151, 181, 0.808);
+            
+
+        }
+        button{
+            background-color:rgba(241, 151, 181, 0.973);
+            border: none;
+            height: 20px;
+            width: 90px;
+            color:white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:active{
+            opacity: .7;
+        }
+        .pop{
+            height:40px;
+            width:auto;
+            padding:8px;
+            background-color: lightseagreen;
+            margin-bottom: -50px;
+            margin-top: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color:white;
+            text-transform: capitalize;
+            border-radius: 12px;
+
+        }
+        #pop{
+            position: relative;
+            top:-2px;
+        }
+       
+    </style>
+</head>
+<body>
+    <h2>Rock paper scissor</h2>
+    <div class="container">
+        <div id="rock" class="choice">
+         <img src="rock.png">
+        </div>
+        <div id="paper"class="choice">
+            <img src="paper.png">
+            
+        </div>
+        <div id="scissor" class="choice">
+            <img src="scissors.png">
+        </div>
+
+    </div>
+    <div class="score">
+        <div class="comp">
+            <p id="comp_score">0</p>Computer
+        </div>
+        <div class="user">
+            <p id="user_score">0</p>User
+        </div>
+        
+    </div>
+    <div class="msg">
+        <p id="msg">Computer winner</p>
+        <button onclick="restart()">Restart</button>
+    </div>
+    <div class="pop">
+        <p id="pop">scissor beat paper</p>
+
+    </div>
+    <script>
+        let pop=document.querySelector("#pop");
+        let choices=document.querySelectorAll(".choice");
+        let comp_s=document.querySelector("#comp_score");
+        let user_s=document.querySelector("#user_score");
+        let msg=document.querySelector("#msg");
+        let msg_box=document.querySelector(".msg");
+        let userScore=0;
+        let compScore=0;
+
+        choices.forEach((choice) => {
+            choice.addEventListener("click",()=>{
+                let userchoice=choice.getAttribute("id");
+                playgame(userchoice);
+            })
+            
+        });
+        
+        let compgen=()=>{
+            let arr=["rock","scissor","paper"];
+            let rand=Math.floor(Math.random()*3);
+            return arr[rand];
+        }
+
+       let playgame=(userchoice)=>{
+        let compchoice=compgen();
+        console.log(userchoice,compchoice);
+        if(compchoice==userchoice){
+          
+            console.log("game is draw");
+        }
+        else{
+            let userwin=true;
+            if(userchoice==="rock"){
+                if(compchoice==="scissor"){
+                    userwin=true;                    
+                    console.log("you win");
+                }
+                else{
+                    console.log("computer win");
+                    userwin=false;
+                }
+
+            }
+            else if(userchoice==="paper"){
+                if(compchoice==="scissor"){
+                    userwin=false;
+                    console.log("computer win");
+                }
+                else{
+                    userwin=true; 
+                    console.log("you win");
+                }
+            }
+                    else {
+            if (userchoice === "paper") {
+                userwin=true; 
+                console.log("you win");
+            } else {
+                userwin=false;
+                console.log("computer win");
+            }
+           
+}
+            showwinner(userwin,userchoice,compchoice);
+
+            }
+           
+        }
+        let showwinner=(userwin,userchoice,compchoice)=>{
+            if(userwin){
+                pop.innerHTML=`${userchoice} beat ${compchoice}`
+                userScore++;
+                user_s.innerHTML=userScore;
+            }
+            else{
+                pop.innerHTML=`${compchoice} beat ${userchoice}`;
+                compScore++;
+                comp_s.innerHTML=compScore;
+            }
+        }
+        let showResult = () => {
+    if (userScore > 10) {
+        msg_box.style.display = "inline-flex";
+        msg.innerHTML = "You beat the computer!";
+    } else if (compScore > 10) {
+        msg_box.style.display = "inline-flex";
+        msg.innerHTML = "Computer beat you!";
+    } else {
+        // You can add any additional handling here if needed
+    }
+}
+
+        
+        let restart=()=>{
+            window.location.reload();
+            msg_box.style.display="none";
+        }
+       
+    </script>
+    
+</body>
+</html>
