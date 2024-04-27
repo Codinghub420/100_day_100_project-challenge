@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+html,body{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #17A2B8;;
+    font-family:sans-serif,;
+    padding: 35px;
+
+}
+.container{
+    width: 400px;
+    overflow: hidden;
+    background-color:white ;
+    border-radius: 20px;
+    padding: 35px;
+    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.content_box{
+    
+    border:1px solid rgba(0, 0, 0, 0.247);
+    border-radius: 12px;
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+   font-size: 21px;
+   line-height: 25px;
+   margin-top: -20px;
+   padding: 10px 10px;
+
+}
+.result{
+    display: flex;
+    align-items: center;
+    justify-content: center;   
+    width: 80%;
+    height: 15px;
+    font-size: 20px;
+    padding:10px;
+    margin-bottom: -0px;
+    border-top: 1px solid  rgba(0, 0, 0, 0.301);
+
+}
+.inp_field{
+position: relative;
+top:-20px;
+opacity: 0;
+z-index: -999;
+}
+.text{
+padding:0px 10px;
+display: flex;
+align-items: center;
+justify-content: center;
+
+
+}
+.result li{
+display: flex;
+align-items: center;
+justify-content: center;
+
+
+}
+.result li span{
+margin-right: 10px;
+padding: 0px 2px;
+border-right: 1px solid rgba(0, 0, 0, 0.322);
+}
+p{
+margin-right: 10px;
+}
+button{
+
+height: 30px;
+border: none;
+padding: 15px;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 5px;
+background-color: #17A2B8;
+color:white;
+transition: transfrom 1s ease;
+cursor: pointer;
+
+}
+button:active{
+opacity: .7;
+cursor: pointer;
+}
+.correct{
+color:green;
+}
+.incorrect{
+color:red;
+background-color: #ffc0cb;
+border-radius: 50%;
+}
+.active{
+color:#17A2B8;
+border-bottom: 2px solid #17A2B8;
+animation: blink .5s infinite;
+}
+@keyframes blink {
+50%{
+    border-color: transparent;
+}
+
+}
