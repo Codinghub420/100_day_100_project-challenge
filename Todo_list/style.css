@@ -1,0 +1,98 @@
+body {
+    font-family: cursive;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    flex-direction: column;
+    color: white;
+    background-color: #1b1b1b;
+    font-weight: bolder;
+    
+}
+
+.todo-container {
+    
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    font-family: cursive;
+}
+
+h1 {
+    margin: 0 0 20px;
+}
+
+form {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+form input {
+    color:white;
+    background-color: transparent;
+    font-family: cursive;
+    font-weight: bolder;
+    border: none;
+    flex: 1;
+    text-align: center;
+    border-bottom: 2px solid #ddd;
+    outline: none;
+    margin-right:30px;
+    transition: all .2s ease-in;
+    
+}
+form input:focus{
+    border-bottom:2px solid #1f6feb;
+}
+
+form button {
+   padding:5px 10px;
+   border-radius: 3px;   
+    background-color: #1f6feb;
+    color: #fff;
+    cursor: pointer;
+    border:none;
+    font-family: cursive;
+    font-weight: bolder;
+
+    
+}
+
+form button:active {
+    opacity: .6;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+   
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li.completed {
+    text-decoration: line-through;
+    color: #777;
+}
+
+li button {
+    background-color: transparent;
+    border:1px solid white;
+    color: #fff;
+    
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
