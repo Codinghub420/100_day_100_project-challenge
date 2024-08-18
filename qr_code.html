@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <style>
+        html, body {
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            background-color: #1b1b1b;
+            font-family: cursive;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+        }
+        h2 {
+            margin-top: 90px;
+            color: white;
+            margin-bottom: 30px;
+        }
+        .code {
+            height: 200px;
+            width: 290px;
+            border: 1px solid rgba(255, 255, 255, 0.534);
+            margin-top: 30px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        button {
+            height: 30px;
+            color: white;
+            font-weight: bolder;
+            font-family: cursive;
+            border: none;
+            border-radius: 3px;
+            text-align: center;
+            cursor: pointer;
+            background-color: #1f6feb;
+        }
+        button:active {
+            opacity: .7;
+        }
+        input {
+            outline: none;
+            margin-right: 10px;
+            background-color: transparent;
+            border: none;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.452);
+            font-family: cursive;
+            text-align: center;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.555);
+            transition: all .2s ease;
+        }
+        input:focus {
+            border-color: #1f6feb;
+        }
+        #load {
+            color: white;
+            font-weight: bolder;
+            font-family: cursive;
+        }
+        img{
+            height:100px;
+            width:100px;
+        }
+    </style>
+</head>
+<body>
+    <h2>QR Code Generator</h2>
+    <div class="container">
+        <input type="text" id="box" placeholder="Enter the URL...">
+        <button onclick="getqrcode()">Generate</button>
+    </div>
+    <div class="code">
+        <h2 id="load"></h2>
+    </div>
+    <script>
+        const getqrcode = async () => {
+            let inp = document.querySelector("#box").value;
+            let code = document.querySelector(".code");
+            let load = document.querySelector("#load");
+
+            if (!inp) {
+                load.innerHTML = "Please enter a URL";
+                return;
+            }
+
+            let url = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(inp)}`;
+            
+            try {
+                load.innerHTML = "LOADING....";
+                code.innerHTML = `<img src="${url}" alt="QR Code">`;
+                load.innerHTML = ""; 
+                inp.innerHTML="";
+                
+            } catch (error) {
+                load.innerHTML = "Failed to generate QR code";
+                console.error(error);
+            }
+        }
+    </script>
+</body>
+</html>
